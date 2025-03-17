@@ -1,3 +1,9 @@
+# https://github.com/scikit-build/scikit-build/issues/506#issuecomment-706791791
+if(SKBUILD)
+  set(Python_EXECUTABLE "${PYTHON_EXECUTABLE}")
+  set(Python_INCLUDE_DIR "${PYTHON_INCLUDE_DIR}")
+  set(Python_LIBRARY "${PYTHON_LIBRARY}")
+endif()
 find_package(
   Python
   COMPONENTS Development.Module
