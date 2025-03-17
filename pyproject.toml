@@ -135,6 +135,7 @@ skip = [
   "cp36-*",
   "cp37-*",
   "cp38-*",
+  "cp39-*",
   "pp*",
   "*musllinux*",
   "cp313-manylinux_aarch64",
