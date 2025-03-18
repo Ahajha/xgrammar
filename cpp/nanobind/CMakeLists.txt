@@ -1,3 +1,8 @@
+# GitHub Actions like activation
+if(NOT DEFINED Python_ROOT_DIR AND DEFINED ENV{pythonLocation})
+  set(Python_ROOT_DIR "$ENV{pythonLocation}")
+endif()
+
 find_package(
   Python
   COMPONENTS Development.Module
