@@ -1,22 +1,6 @@
-# GitHub Actions like activation
-if(NOT DEFINED Python_ROOT_DIR AND DEFINED ENV{pythonLocation})
-  set(Python_ROOT_DIR "$ENV{pythonLocation}")
-endif()
-
-if(NOT DEFINED Python_FIND_IMPLEMENTATIONS)
-  set(Python_FIND_IMPLEMENTATIONS CPython PyPy)
-endif()
-
-# https://github.com/scikit-build/scikit-build/issues/506#issuecomment-706791791
-if(SKBUILD)
-  set(Python_EXECUTABLE "${PYTHON_EXECUTABLE}")
-  set(Python_INCLUDE_DIR "${PYTHON_INCLUDE_DIR}")
-  set(Python_LIBRARY "${PYTHON_LIBRARY}")
-endif()
-
 find_package(
   Python
-  COMPONENTS Development.Module
+  COMPONENTS Interpreter Development.Module
   REQUIRED
 )
 

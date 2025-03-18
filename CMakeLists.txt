@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 project(xgrammar LANGUAGES CXX)
 
-find_package(
-  Python
-  COMPONENTS Development.Module
-  REQUIRED
-)
-
 if(EXISTS ${CMAKE_BINARY_DIR}/config.cmake)
   message(STATUS "Config file: ${CMAKE_BINARY_DIR}/config.cmake")
   include(${CMAKE_BINARY_DIR}/config.cmake)
