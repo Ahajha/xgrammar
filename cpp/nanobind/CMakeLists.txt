@@ -3,6 +3,10 @@ if(NOT DEFINED Python_ROOT_DIR AND DEFINED ENV{pythonLocation})
   set(Python_ROOT_DIR "$ENV{pythonLocation}")
 endif()
 
+if(NOT DEFINED Python_FIND_IMPLEMENTATIONS)
+  set(Python_FIND_IMPLEMENTATIONS CPython PyPy)
+endif()
+
 find_package(
   Python
   COMPONENTS Development.Module
