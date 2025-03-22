@@ -168,7 +168,7 @@ NB_MODULE(xgrammar_bindings, m) {
           }
       );
 
-  auto pyTestingModule = m.def_submodule("testing");
+  auto pyTestingModule = m.def_submodule("_testing");
   pyTestingModule
       .def(
           "_json_schema_to_ebnf",
