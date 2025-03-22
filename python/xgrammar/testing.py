@@ -50,7 +50,7 @@ def _json_schema_to_ebnf(
         The BNF grammar string.
     """
     schema_str = _convert_schema_to_str(schema)
-    return _core.testing._json_schema_to_ebnf(
+    return _core._testing._json_schema_to_ebnf(
         schema_str, any_whitespace, indent, separators, strict_mode
     )
 
@@ -79,7 +79,7 @@ def _regex_to_ebnf(regex: str, with_rule_name: bool = True) -> str:
     bnf_string : str
         The BNF grammar string converted from the input regex.
     """
-    return _core.testing._regex_to_ebnf(regex, with_rule_name)
+    return _core._testing._regex_to_ebnf(regex, with_rule_name)
 
 
 def _ebnf_to_grammar_no_normalization(ebnf_string: str, root_rule_name: str = "root") -> Grammar:
@@ -97,7 +97,7 @@ def _ebnf_to_grammar_no_normalization(ebnf_string: str, root_rule_name: str = "r
         The unnormalized Grammar object converted from the input BNF grammar string.
     """
     return Grammar._create_from_handle(
-        _core.testing._ebnf_to_grammar_no_normalization(ebnf_string, root_rule_name)
+        _core._testing._ebnf_to_grammar_no_normalization(ebnf_string, root_rule_name)
     )
 
 
@@ -187,7 +187,7 @@ def _get_masked_tokens_from_bitmask(
         raise ValueError("bitmask should be on CPU.")
     if bitmask.dtype != bitmask_dtype:
         raise ValueError(f"bitmask should be of type {bitmask_dtype}.")
-    return _core.testing._get_masked_tokens_from_bitmask(
+    return _core._testing._get_masked_tokens_from_bitmask(
         bitmask.data_ptr(), list(bitmask.shape), vocab_size, index
     )
 
@@ -213,7 +213,7 @@ def _is_single_token_bitmask(
     token_id : int
         The id of the token if the bitmask is a single token bitmask, -1 otherwise.
     """
-    return _core.testing._is_single_token_bitmask(
+    return _core._testing._is_single_token_bitmask(
         bitmask.data_ptr(), list(bitmask.shape), vocab_size, index
     )
 
@@ -276,15 +276,15 @@ def _get_matcher_from_grammar_and_tokenizer_info(
 
 
 def _get_allow_empty_rule_ids(compiled_grammar: CompiledGrammar) -> List[int]:
-    return _core.testing._get_allow_empty_rule_ids(compiled_grammar._handle)
+    return _core._testing._get_allow_empty_rule_ids(compiled_grammar._handle)
 
 
 def _generate_range_regex(start: Optional[int] = None, end: Optional[int] = None) -> str:
-    return _core.testing._generate_range_regex(start, end)
+    return _core._testing._generate_range_regex(start, end)
 
 
 def _generate_float_regex(start: Optional[float] = None, end: Optional[float] = None) -> str:
-    return _core.testing._generate_float_regex(start, end)
+    return _core._testing._generate_float_regex(start, end)
 
 
 class GrammarFunctor:
@@ -295,33 +295,33 @@ class GrammarFunctor:
     def structure_normalizer(grammar: Grammar) -> Grammar:
         """Normalize the structure of the grammar."""
         return Grammar._create_from_handle(
-            _core.testing.grammar_functor.structure_normalizer(grammar._handle)
+            _core._testing.grammar_functor.structure_normalizer(grammar._handle)
         )
 
     @staticmethod
     def rule_inliner(grammar: Grammar) -> Grammar:
         """Inline some rule references in the grammar."""
         return Grammar._create_from_handle(
-            _core.testing.grammar_functor.rule_inliner(grammar._handle)
+            _core._testing.grammar_functor.rule_inliner(grammar._handle)
         )
 
     @staticmethod
     def byte_string_fuser(grammar: Grammar) -> Grammar:
         """Fuse the byte string elements in the grammar."""
         return Grammar._create_from_handle(
-            _core.testing.grammar_functor.byte_string_fuser(grammar._handle)
+            _core._testing.grammar_functor.byte_string_fuser(grammar._handle)
         )
 
     @staticmethod
     def dead_code_eliminator(grammar: Grammar) -> Grammar:
         """Eliminate the not referenced rules in the grammar."""
         return Grammar._create_from_handle(
-            _core.testing.grammar_functor.dead_code_eliminator(grammar._handle)
+            _core._testing.grammar_functor.dead_code_eliminator(grammar._handle)
         )
 
     @staticmethod
     def lookahead_assertion_analyzer(grammar: Grammar) -> Grammar:
         """Analyze and add lookahead assertions in the grammar."""
         return Grammar._create_from_handle(
-            _core.testing.grammar_functor.lookahead_assertion_analyzer(grammar._handle)
+            _core._testing.grammar_functor.lookahead_assertion_analyzer(grammar._handle)
         )
