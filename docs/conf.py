@@ -7,9 +7,6 @@ import tlcpack_sphinx_addon
 
 # -- General configuration ------------------------------------------------
 
-os.environ["XGRAMMAR_BUILD_DOCS"] = "1"
-sys.path.insert(0, os.path.abspath("../python"))
-sys.path.insert(0, os.path.abspath("../"))
 autodoc_mock_imports = ["torch"]
 
 version_file = "../python/xgrammar/version.py"

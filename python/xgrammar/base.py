@@ -1,11 +1,6 @@
 """This module provides classes to handle C++ objects from nanobind."""
 
-import os
-
-if os.environ.get("XGRAMMAR_BUILD_DOCS") != "1":
-    from . import xgrammar_bindings as _core
-else:
-    _core = "dummy namespace"
+from . import xgrammar_bindings as _core
 
 
 class XGRObject:

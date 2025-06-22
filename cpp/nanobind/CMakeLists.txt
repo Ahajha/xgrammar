@@ -3,6 +3,12 @@ find_package(
   COMPONENTS Interpreter Development.Module
   REQUIRED
 )
+if (NOT DEFINED SKBUILD_PROJECT_NAME)
+    execute_process(
+        COMMAND "${Python_EXECUTABLE}" -m nanobind --cmake_dir
+        OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE nanobind_ROOT
+    )
+endif()
 find_package(nanobind CONFIG REQUIRED)
 
 # Compile this source file seperately. Nanobind suggests to optimize bindings code for size, but
