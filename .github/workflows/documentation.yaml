@@ -23,6 +23,9 @@ jobs:
           version: "0.7.13"
           python-version: "3.12"
           activate-environment: true
+          # Pytorch
+          prune-cache: false
+          cache-suffix: "uv-pip-cache"
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
